@@ -1,12 +1,9 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+// Importerer intitalizApp fra Firebase-app SDK
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-app.js";
+// Importerer alle Firestore-funksjonene vi skal bruke 
+// Om du får feilmeldinga "ReferenceError: [...] is not defined", kan det være det fordi du har brukt en Firestore-funksjon uten å ha importert den her.
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-firestore.js"
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDv1ecq8S79fPsnlwl3KRzJeW70fQ_ywtA",
   authDomain: "filmdatabase-4e124.firebaseapp.com",
@@ -17,13 +14,18 @@ const firebaseConfig = {
   measurementId: "G-DH6LNR0FPN"
 };
 
-// Initialize Firebase
+// Starter opp Firebase med den angitte konfigurasjonen
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// Henter ut referanse til Firestore-databasen
+const db = getFirestore();
 
-function addMovie() {
-    // Legger til info i collection som heiter "movies"
-    firebase.firestore().collection("movies").doc().set({
-        title: "test"
-    })
-}
+import { setDoc, doc } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-firestore.js";
+
+// Lager et nytt dokument i samlinga "elever"
+await setDoc(
+    doc(db, "Film", "Blyat"), {
+      FilmNamn: "Blyat",
+      Utgitt: "2001",
+      Direktør: "Cyka Blyat"    
+  });
+ 
