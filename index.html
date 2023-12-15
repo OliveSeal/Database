@@ -3,12 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Movie Central</title>
+    <link rel="stylesheet" href="css.css">
 </head>
 <body>
-  <div id="movies"></div>
 
-  <button onclick="addMovie()">Legg til</button>
+  <label>Film Namn:</label>
+  <input type="text" id="FilmNamn" name="FilmNamn">
+
+  <label>Utgitt:</label>
+  <input type="text" id="Utgitt" name="Utgitt">
+
+  <label>Direktør:</label>
+  <input type="text" id="Direktør" name="Direktør">
+
+  <label>Bilde URL:</label>
+  <input type="text" id="BildeURL" name="BildeURL">
+
 
   <script src="https://www.gstatic.com/firebasejs/9.6.3/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.3/firebase-app-compat.js"></script>
