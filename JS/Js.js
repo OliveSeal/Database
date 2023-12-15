@@ -29,3 +29,15 @@ await setDoc(
       Direktør: "Cyka Blyat"    
   });
  
+import { getDocs, collection } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-firestore.js";
+
+const snapshot = await getDocs(
+  collection(db, "Film")
+);
+
+snapshot.forEach((docSnap) => {
+  console.log(
+    docSnap.data().FilmNamn, 
+    docSnap.data().Utgitt
+  );
+}); 
