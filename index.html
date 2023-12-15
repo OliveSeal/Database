@@ -8,22 +8,23 @@
 </head>
 <body>
 
-  <label>Film Namn:</label>
-  <input type="text" id="FilmNamn" name="FilmNamn">
+  <form>
+    <label for="filmName">Film Name:</label>
+    <input type="text" id="filmName" required><br>
 
-  <label>Utgitt:</label>
-  <input type="text" id="Utgitt" name="Utgitt">
+    <label for="releasedYear">Released Year:</label>
+    <input type="text" id="releasedYear" required><br>
 
-  <label>Direktør:</label>
-  <input type="text" id="Direktør" name="Direktør">
+    <label for="director">Director:</label>
+    <input type="text" id="director" required><br>
 
-  <label>Bilde URL:</label>
-  <input type="text" id="BildeURL" name="BildeURL">
+    <label for="imageURL">Image URL:</label>
+    <input type="text" id="imageURL" required><br>
 
-  
-  <div class="movie-container">
+    <button type="submit">Add Movie</button>
+</form>
 
-  </div>
+<div class="movie-container"></div>
 
   <script src="https://www.gstatic.com/firebasejs/9.6.3/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.3/firebase-app-compat.js"></script>

@@ -23,7 +23,7 @@ body {
 
 .movie-image {
     width: 100%;
-    height: 150px;
+    height: 75%;
     object-fit: cover;
 }
 
