@@ -9,84 +9,13 @@
 
 <h1>AGGGHHHH RAAAAAAAAHH</h1>
 
-<script type="module">
+<button onclick="addMovie()">Legg til</button>
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-firestore.js"
-
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyDt1f5Js2fv6RstwuTBMiE1uK8sLCLq7_I",
-    authDomain: "elevliste-84bcf.firebaseapp.com",
-    projectId: "elevliste-84bcf",
-    storageBucket: "elevliste-84bcf.appspot.com",
-    messagingSenderId: "164627614116",
-    appId: "1:164627614116:web:69728962ccde6184c45931",
-    measurementId: "G-RZXCGPYK9G"
-  };
-
-// Starter opp Firebase med den angitte konfigurasjonen
-const app = initializeApp(firebaseConfig);
-// Henter ut referanse til Firestore-databasen
-const db = getFirestore();
-// Import the necessary functions from Firebase
-import { setDoc, getDoc, doc } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-firestore.js";
-
-// Assuming you have initialized your Firestore database (db) somewhere in your code
-
-// Add documents to the "elever" collection
-await setDoc(
-  doc(db, "elever", "thore"), {
-    fornavn: "Rebecca",
-    etternavn: "Thomasen",
-    telefon: "12345678"
-});
-
-await setDoc(
-  doc(db, "elever", "nilja"), {
-    fornavn: "Jakob",
-    etternavn: "Nilsen",
-    epost: "jakob@nilsen.net"
-});
-
-await setDoc(
-  doc(db, "elever", "moisa"), {
-    fornavn: "Isa",
-    etternavn: "Mo",
-    epost: "isamo@mo.no",
-    telefon: "23456789"
-});
-
-await setDoc(
-  doc(db, "elever", "marga"), {
-    fornavn: "Gabrielle",
-    etternavn: "Martin",
-    telefon: "45678901"
-});
-
-// Retrieve a document snapshot from the "elever" collection
-const docSnap = await getDoc(
-  doc(db, "elever", "nilja")
-);
-
-console.log("Document data:", docSnap.data());
-
-import { getDocs, collection } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-firestore.js";
-
-const snapshot = await getDocs(
-  collection(db, "elever")
-);
-
-snapshot.forEach((docSnap) => {
-  console.log(
-    docSnap.data().fornavn, 
-    docSnap.data().etternavn
-  );
-}); 
-      </script>
+<script src="https://www.gstatic.com/firebasejs/9.6.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.3/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.3/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.3/firebase-firestore-compat.js"></script>
+<script src="js/database.js"></script>
 
 </body>
 </html>
