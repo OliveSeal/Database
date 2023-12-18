@@ -31,7 +31,8 @@ const app = initializeApp(firebaseConfig);
                 FilmName: filmName,
                 ReleasedYear: releasedYear,
                 Director: director,
-                ImageURL: imageURL
+                Genre: genre,
+                ImageURL: imageURL,
             })
             .then(() => {
                 console.log("Document successfully written!");
@@ -47,19 +48,20 @@ const app = initializeApp(firebaseConfig);
             onSnapshot(moviesCollection, (querySnapshot) => {
                 movieContainer.innerHTML = ''; // Clear existing content
 
+
                 querySnapshot.forEach((doc) => {
                     const movieData = doc.data();
-
+            
                     // Create movie card
                     const movieCard = document.createElement('div');
                     movieCard.className = 'movie-card';
-
+            
                     // Create movie image
                     const movieImage = document.createElement('img');
                     movieImage.className = 'movie-image';
                     movieImage.src = movieData.ImageURL;
                     movieImage.alt = movieData.FilmName;
-
+            
                     // Create movie info
                     const movieInfo = document.createElement('div');
                     movieInfo.className = 'movie-info';
@@ -67,12 +69,13 @@ const app = initializeApp(firebaseConfig);
                         <h2>${movieData.FilmName}</h2>
                         <p>Year: ${movieData.ReleasedYear}</p>
                         <p>Director: ${movieData.Director}</p>
+                        <p>Genre: ${movieData.Genre}</p> <!-- Added Genre -->
                     `;
-
+            
                     // Append image and info to the card
                     movieCard.appendChild(movieImage);
                     movieCard.appendChild(movieInfo);
-
+            
                     // Append the movie card to the container
                     movieContainer.appendChild(movieCard);
                 });

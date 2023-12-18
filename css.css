@@ -19,6 +19,7 @@ body {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
 }
 
 .movie-image {
@@ -29,6 +30,7 @@ body {
 
 .movie-info {
     padding: 15px;
+    padding-bottom: 150px;
 }
 
 h2, p {
@@ -38,4 +40,9 @@ h2, p {
 
 p {
     color: #777;
+}
+
+form {
+    padding-top: 10px;
+    padding-left: 5%;
 }
