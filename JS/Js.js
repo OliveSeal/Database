@@ -19,11 +19,13 @@ const app = initializeApp(firebaseConfig);
             const filmNameInput = document.getElementById('filmName');
             const releasedYearInput = document.getElementById('releasedYear');
             const directorInput = document.getElementById('director');
+            const genreInput = document.getElementById('genre');
             const imageURLInput = document.getElementById('imageURL');
 
             const filmName = filmNameInput ? filmNameInput.value : '';
             const releasedYear = releasedYearInput ? releasedYearInput.value : '';
             const director = directorInput ? directorInput.value : '';
+            const genre = genreInput ? genreInput.value : '';
             const imageURL = imageURLInput ? imageURLInput.value : '';
 
             // Add a new document with the movie information to the "Movies" collection
@@ -69,7 +71,7 @@ const app = initializeApp(firebaseConfig);
                         <h2>${movieData.FilmName}</h2>
                         <p>Year: ${movieData.ReleasedYear}</p>
                         <p>Director: ${movieData.Director}</p>
-                        <p>Genre: ${movieData.Genre}</p> <!-- Added Genre -->
+                        <p>Genre: ${movieData.Genre}</p>
                     `;
             
                     // Append image and info to the card
