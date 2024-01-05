@@ -93,9 +93,9 @@ const app = initializeApp(firebaseConfig);
                     movieCard.appendChild(movieInfo);
         
                     // Append the movie card to the container
-                    movieContainer.appendChild(movieCard);
+                    movieContainer.appendChild(movieCard); 
                 });
-        
+         
                 // Add event listener for genre filter change
                 if (genreFilter) {
                     genreFilter.addEventListener('change', function () {
