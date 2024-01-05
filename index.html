@@ -22,9 +22,40 @@
     <input type="text" id="imageURL" required>
 
     <label for="genre">Genre:</label>
-    <input type="text" id="genre" required>
+    <select id="genre" required>
+        <option value="Action">Action</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Drama">Drama</option>
+        <option value="Drama">War</option>
+        <option value="Drama">Sci-Fi</option>
+        <option value="Drama">Anime</option>
+        <option value="Drama">Fantasy</option>
+        <option value="Drama">Horror</option>
+        <option value="Drama">Thriller</option>
+        <option value="Drama">Animation</option>
+        <option value="Drama">Documentary</option>
+        <option value="Drama">Romance</option>
+    </select>
 
     <button type="submit">Add Movie</button>
+
+    <p> </p>
+    <label for="genre">Genre Sorting:</label>
+    <select id="genreFilter" onchange="filterMovies()">
+        <option value="all">All Genres</option>
+        <option value="Action">Action</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Drama">Drama</option>
+        <option value="War">War</option>
+        <option value="Sci-Fi">Sci-Fi</option>
+        <option value="Anime">Anime</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Horror">Horror</option>
+        <option value="Thriller">Thriller</option>
+        <option value="Animation">Animation</option>
+        <option value="Documentary">Documentary</option>
+        <option value="Romance">Romance</option>
+    </select>
 </form>
 
 <div class="movie-container"></div>

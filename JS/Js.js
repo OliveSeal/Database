@@ -44,26 +44,40 @@ const app = initializeApp(firebaseConfig);
             });
         }
 
+        function filterMovies(selectedGenre) {
+            const movieCards = document.querySelectorAll('.movie-card');
+        
+            movieCards.forEach((card) => {
+                const movieGenre = card.getAttribute('data-genre');
+                if (selectedGenre === 'all' || movieGenre === selectedGenre) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        
         function displayMovies() {
             const movieContainer = document.querySelector('.movie-container');
-
+            const genreFilter = document.getElementById('genreFilter');
+        
             onSnapshot(moviesCollection, (querySnapshot) => {
                 movieContainer.innerHTML = ''; // Clear existing content
-
-
+        
                 querySnapshot.forEach((doc) => {
                     const movieData = doc.data();
-            
+        
                     // Create movie card
                     const movieCard = document.createElement('div');
                     movieCard.className = 'movie-card';
-            
+                    movieCard.setAttribute('data-genre', movieData.Genre); // Store the genre as a data attribute
+        
                     // Create movie image
                     const movieImage = document.createElement('img');
                     movieImage.className = 'movie-image';
                     movieImage.src = movieData.ImageURL;
                     movieImage.alt = movieData.FilmName;
-            
+        
                     // Create movie info
                     const movieInfo = document.createElement('div');
                     movieInfo.className = 'movie-info';
@@ -73,27 +87,37 @@ const app = initializeApp(firebaseConfig);
                         <p>Director: ${movieData.Director}</p>
                         <p>Genre: ${movieData.Genre}</p>
                     `;
-            
+        
                     // Append image and info to the card
                     movieCard.appendChild(movieImage);
                     movieCard.appendChild(movieInfo);
-            
+        
                     // Append the movie card to the container
                     movieContainer.appendChild(movieCard);
                 });
+        
+                // Add event listener for genre filter change
+                if (genreFilter) {
+                    genreFilter.addEventListener('change', function () {
+                        filterMovies(genreFilter.value);
+                    });
+                }
+        
+                // Call filterMovies to initially display all movies
+                filterMovies('all');
             });
         }
-
+        
         // Call the displayMovies function to fetch and display movies when the page loads
-        window.onload = function() {
+        window.onload = function () {
             displayMovies();
-
+        
             // Add an event listener for the form submission
             const form = document.querySelector('form');
             if (form) {
-                form.addEventListener('submit', function(event) {
+                form.addEventListener('submit', function (event) {
                     event.preventDefault();
                     addMovie();
                 });
             }
-        };  
+        };
